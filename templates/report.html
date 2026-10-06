@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Security Analysis Report</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef1f5;
+        }
+
+        .container {
+            width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .box {
+            padding: 18px;
+            background: #f5f6f8;
+            border-radius: 8px;
+        }
+
+        .box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .finding {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .high {
+            border-left: 6px solid #d9534f;
+        }
+
+        .medium {
+            border-left: 6px solid #f0ad4e;
+        }
+
+        .low {
+            border-left: 6px solid #5bc0de;
+        }
+
+        .safe {
+            padding: 25px;
+            text-align: center;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .back {
+            display: block;
+            width: 200px;
+            text-align: center;
+            margin: 30px auto 0;
+            padding: 12px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <h1>🔐 Security Analysis Report</h1>
+
+
+    <div class="summary">
+
+        <div class="box">
+
+            <strong>Password Length</strong>
+
+            {{ result.password_length }} characters
+
+        </div>
+
+
+        <div class="box">
+
+            <strong>Password Strength</strong>
+
+            {{ result.password_strength }}
+
+        </div>
+
+
+        <div class="box">
+
+            <strong>Hash Algorithm</strong>
+
+            {{ result.hash_algorithm }}
+
+        </div>
+
+
+        <div class="box">
+
+            <strong>Encryption Algorithm</strong>
+
+            {{ result.encryption_algorithm }}
+
+        </div>
+
+
+        <div class="box">
+
+            <strong>Encryption Mode</strong>
+
+            {{ result.encryption_mode }}
+
+        </div>
+
+
+        <div class="box">
+
+            <strong>Key Length</strong>
+
+            {{ result.key_length }} bits
+
+        </div>
+
+    </div>
+
+
+    <h2>Security Findings</h2>
+
+
+    {% if result.findings %}
+
+
+        {% for finding in result.findings %}
+
+        <div class="finding {{ finding.severity|lower }}">
+
+            <h3>
+                {{ finding.title }}
+            </h3>
+
+            <p>
+                <strong>Severity:</strong>
+                {{ finding.severity }}
+            </p>
+
+            <p>
+                <strong>Problem:</strong>
+                {{ finding.description }}
+            </p>
+
+            <p>
+                <strong>Recommendation:</strong>
+                {{ finding.recommendation }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <div class="safe">
+
+            <h2>✓ No Major Misconfigurations Found</h2>
+
+            <p>
+                The selected cryptographic configuration
+                did not trigger any of the current security rules.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    <a href="/" class="back">
+        Analyze Again
+    </a>
+
+
+</div>
+
+</body>
+
+</html>

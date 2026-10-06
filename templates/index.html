@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Cryptographic Security Analyzer</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef1f5;
+        }
+
+        .container {
+            width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 30px;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .section {
+            margin-top: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🔐 Cryptographic Security Analyzer</h1>
+
+    <p class="subtitle">
+        Analyze passwords, hashing algorithms and encryption configurations.
+    </p>
+
+
+    <form action="/analyze" method="POST">
+
+
+        <div class="section">
+
+            <h2>Password Analysis</h2>
+
+        </div>
+
+
+        <label>Password / Plaintext</label>
+
+        <input
+            type="text"
+            name="password"
+            placeholder="Enter password or plaintext"
+            required
+        >
+
+
+        <div class="section">
+
+            <h2>Hash Analysis</h2>
+
+        </div>
+
+
+        <label>Hash Algorithm</label>
+
+        <select name="hash_algorithm">
+
+            <option value="SHA-256">
+                SHA-256
+            </option>
+
+            <option value="SHA-512">
+                SHA-512
+            </option>
+
+            <option value="SHA-1">
+                SHA-1
+            </option>
+
+            <option value="MD5">
+                MD5
+            </option>
+
+        </select>
+
+
+        <label>Hash / Result</label>
+
+        <input
+            type="text"
+            name="hash_result"
+            placeholder="Enter hash result"
+        >
+
+
+        <div class="section">
+
+            <h2>Encryption Analysis</h2>
+
+        </div>
+
+
+        <label>Encryption Algorithm</label>
+
+        <select name="encryption_algorithm">
+
+            <option value="AES">
+                AES
+            </option>
+
+            <option value="DES">
+                DES
+            </option>
+
+            <option value="3DES">
+                3DES
+            </option>
+
+        </select>
+
+
+        <label>Encryption Mode</label>
+
+        <select name="encryption_mode">
+
+            <option value="GCM">
+                GCM
+            </option>
+
+            <option value="CBC">
+                CBC
+            </option>
+
+            <option value="ECB">
+                ECB
+            </option>
+
+            <option value="CTR">
+                CTR
+            </option>
+
+        </select>
+
+
+        <label>Encryption Key</label>
+
+        <input
+            type="text"
+            name="encryption_key"
+            placeholder="Enter encryption key"
+            required
+        >
+
+
+        <button type="submit">
+            Analyze Security
+        </button>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

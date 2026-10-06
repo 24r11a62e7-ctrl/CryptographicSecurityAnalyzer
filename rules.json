@@ -1,0 +1,36 @@
+{
+    "MD5": {
+        "title": "MD5 Hashing",
+        "severity": "HIGH",
+        "description": "MD5 is a cryptographically broken hashing algorithm and should not be used for security-sensitive applications.",
+        "recommendation": "Use SHA-256, SHA-3, or another modern cryptographic hash."
+    },
+
+    "SHA-1": {
+        "title": "SHA-1 Hashing",
+        "severity": "HIGH",
+        "description": "SHA-1 is considered cryptographically weak for new security-sensitive applications.",
+        "recommendation": "Use SHA-256, SHA-384, SHA-512, or SHA-3."
+    },
+
+    "DES": {
+        "title": "DES Encryption",
+        "severity": "HIGH",
+        "description": "DES has an insufficient effective security level and is considered obsolete.",
+        "recommendation": "Replace DES with AES."
+    },
+
+    "3DES": {
+        "title": "3DES Encryption",
+        "severity": "MEDIUM",
+        "description": "3DES is an older encryption algorithm that is unsuitable for many new applications.",
+        "recommendation": "Use AES instead of 3DES."
+    },
+
+    "AES-ECB": {
+        "title": "AES-ECB Mode",
+        "severity": "HIGH",
+        "description": "ECB mode can reveal patterns because identical plaintext blocks can produce identical ciphertext blocks.",
+        "recommendation": "Use an authenticated encryption mode such as AES-GCM where appropriate."
+    }
+}
